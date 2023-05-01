@@ -3,11 +3,12 @@ import { useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-
+// We use reactstrap to create forms & pass formdata to addItem prop
 function AddItem(props) {
     const [formData, setFormData] = useState({});
     const history = useHistory();
 
+    // on every change, retreive key value pairs and setFormData
     function handleChange(evt) {
         const { name, value } = evt.target;
         setFormData(formData => ({
@@ -16,6 +17,8 @@ function AddItem(props) {
         }));
     }
 
+    // on submit, pass formData to addItem function which was passed down as a prop
+    // this will update the state of snacks/ drinks and trigger re-render
     async function handleSubmit(evt) {
         evt.preventDefault();
         await props.addItem(formData);

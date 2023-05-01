@@ -42,6 +42,7 @@ function App() {
     return <p>Loading &hellip;</p>;
   }
 
+  // match exact path, render components, pass through necessary props
   return (
     <div className="App">
       <BrowserRouter>
